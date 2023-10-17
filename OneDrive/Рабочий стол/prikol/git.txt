@@ -1,0 +1,61 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace prikol
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            programm programm = new programm();
+            programm.Add(10, 15, "бимбимбамбам", 10.1);
+            programm.Add(20, 10, "бимбимбамбим", 20.1);
+            programm.Add(30, 20,"бимбамбамбам", 30.1);
+            programm.Add(40, 25,"бимбамбамбам", 40.1);
+            programm.OutputIndex(2);
+            programm.lenght();
+            programm.Remove();
+            programm.lenght();
+        }
+    }
+}
+
+class programm {
+    ArrayList arr = new ArrayList();
+    List<int> list = new List<int>();
+    Stack<String> stack = new Stack<String>();
+    Queue<double> queue = new Queue<double>();
+    public void Add(int itemArr, int itemList, string itemStack, double itemQueue)
+    { 
+        arr.Add(itemArr);
+        list.Add(itemList);
+        stack.Push(itemStack);
+        queue.Enqueue(itemQueue);
+    }
+    public void Remove()
+    {
+        arr.Remove(arr[arr.Count]);
+        list.Remove(list[list.Count]);
+        stack.Pop();
+        queue.Dequeue();
+    }
+    public void  OutputIndex(int i)
+    {
+        Console.WriteLine(arr[i]);
+        Console.WriteLine(list[i]);
+        Console.WriteLine(stack.Peek());
+        Console.WriteLine(queue.Peek());
+    }
+    public void lenght()
+    {
+        Console.WriteLine(arr.Count);
+        Console.WriteLine(list.Count);
+        Console.WriteLine(stack.Count);
+        Console.WriteLine(queue.Count);
+    }
+}
